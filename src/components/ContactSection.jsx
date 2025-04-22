@@ -7,51 +7,66 @@ const ContactSection = () => {
   useEffect(() => {
     gsap.from(formRef.current.children, {
       opacity: 0,
-      y: 50,
-      stagger: 0.2,
-      duration: 1,
+      y: 60,
+      stagger: 0.3,
+      duration: 1.2,
       scrollTrigger: { trigger: formRef.current, start: 'top 80%' },
     });
+
+    // Cursor glow effect
+    const cursor = document.createElement('div');
+    cursor.className = 'cursor-glow';
+    document.body.appendChild(cursor);
+
+    const moveCursor = (e) => {
+      gsap.to(cursor, { x: e.clientX - 12, y: e.clientY - 12, duration: 0.1 });
+    };
+    window.addEventListener('mousemove', moveCursor);
+
+    return () => {
+      window.removeEventListener('mousemove', moveCursor);
+      document.body.removeChild(cursor);
+    };
   }, []);
 
   const handleSubmit = () => {
     gsap.to(formRef.current, {
       opacity: 0,
-      scale: 0.8,
-      duration: 1,
-      onComplete: () => alert('Message Transmitted!'),
+      scale: 0.7,
+      duration: 1.2,
+      onComplete: () => alert('Signal Transmitted!'),
     });
   };
 
   return (
-    <section id="contact" className="min-h-screen bg-transparent text-white p-8">
-      <div ref={formRef} className="max-w-lg mx-auto">
-        <h2 className="text-5xl font-bold text-cyan-400 text-center mb-12 glitch">Transmission Hub</h2>
-        <div className="glass-panel p-8 rounded-lg">
-          <div className="mb-6">
+    <section id="contact" className="min-h-screen bg-transparent text-white p-10">
+      <div ref={formRef} className="max-w-xl mx-auto">
+        <h2 className="text-6xl font-bold text-cyan-400 text-center mb-12 glitch">Signal Relay</h2>
+        <div className="glass-panel p-10 rounded-lg">
+          <div className="mb-8">
             <input
               type="text"
               placeholder="Name"
               className="w-full p-4 bg-transparent border border-cyan-400 rounded-lg focus:outline-none focus:border-cyan-300 text-white"
             />
           </div>
-          <div className="mb-6">
+          <div className="mb-8">
             <input
               type="email"
               placeholder="Email"
               className="w-full p-4 bg-transparent border border-cyan-400 rounded-lg focus:outline-none focus:border-cyan-300 text-white"
             />
           </div>
-          <div className="mb-6">
+          <div className="mb-8">
             <textarea
               placeholder="Message"
               className="w-full p-4 bg-transparent border border-cyan-400 rounded-lg focus:outline-none focus:border-cyan-300 text-white"
-              rows="5"
+              rows="6"
             ></textarea>
           </div>
           <button
             onClick={handleSubmit}
-            className="w-full px-8 py-3 bg-cyan-400 text-black rounded-full hover:bg-cyan-300 transition"
+            className="w-full px-10 py-4 bg-cyan-400 text-black rounded-full hover:bg-cyan-300 transition glass-panel"
           >
             Transmit Signal
           </button>
