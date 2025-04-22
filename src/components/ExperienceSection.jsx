@@ -7,9 +7,9 @@ const ExperienceSection = () => {
   useEffect(() => {
     gsap.from(sectionRef.current.children, {
       opacity: 0,
-      x: 100,
-      stagger: 0.3,
-      duration: 1,
+      x: 120,
+      stagger: 0.4,
+      duration: 1.2,
       scrollTrigger: { trigger: sectionRef.current, start: 'top 80%' },
     });
   }, []);
@@ -18,25 +18,25 @@ const ExperienceSection = () => {
     {
       title: 'Senior Developer at TechCorp',
       period: '2022 - Present',
-      desc: 'Led development of a real-time analytics platform.',
+      desc: 'Architected a real-time analytics platform with cutting-edge UI.',
     },
     {
       title: 'Frontend Engineer at Innovate',
       period: '2020 - 2022',
-      desc: 'Built interactive web applications with React and Three.js.',
+      desc: 'Developed interactive web apps using React and WebGL.',
     },
   ];
 
   return (
-    <section id="experience" className="min-h-screen bg-transparent text-white p-8">
+    <section id="experience" className="min-h-screen bg-transparent text-white p-10">
       <div ref={sectionRef}>
-        <h2 className="text-5xl font-bold text-cyan-400 text-center mb-12 glitch">Chrono-Path</h2>
-        <div className="max-w-3xl mx-auto">
+        <h2 className="text-6xl font-bold text-cyan-400 text-center mb-12 glitch">Temporal Log</h2>
+        <div className="max-w-4xl mx-auto">
           {experiences.map((exp, index) => (
-            <div key={index} className="glass-panel p-6 mb-6 rounded-lg hover:scale-105 transition">
-              <h3 className="text-2xl font-bold text-cyan-400">{exp.title}</h3>
+            <div key={index} className="glass-panel p-8 mb-8 rounded-lg hover:scale-105 transition">
+              <h3 className="text-3xl font-bold text-cyan-400">{exp.title}</h3>
               <p className="text-sm text-gray-300">{exp.period}</p>
-              <p className="mt-2">{exp.desc}</p>
+              <p className="mt-3">{exp.desc}</p>
             </div>
           ))}
         </div>
