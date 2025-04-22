@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/futuristic-portfolio/', // For GitHub Pages
+  base: '/futuristic-portfolio/', // Ensure this matches your repo name
 });
