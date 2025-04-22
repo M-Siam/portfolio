@@ -7,9 +7,9 @@ const DashboardSection = () => {
   useEffect(() => {
     gsap.from(sectionRef.current.children, {
       opacity: 0,
-      scale: 0.8,
-      stagger: 0.2,
-      duration: 1,
+      scale: 0.7,
+      stagger: 0.3,
+      duration: 1.2,
       scrollTrigger: { trigger: sectionRef.current, start: 'top 80%' },
     });
   }, []);
@@ -21,14 +21,14 @@ const DashboardSection = () => {
   ];
 
   return (
-    <section id="dashboard" className="min-h-screen bg-transparent text-white p-8">
+    <section id="dashboard" className="min-h-screen bg-transparent text-white p-10">
       <div ref={sectionRef}>
-        <h2 className="text-5xl font-bold text-cyan-400 text-center mb-12 glitch">Command Center</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <h2 className="text-6xl font-bold text-cyan-400 text-center mb-12 glitch">System Hub</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {stats.map((stat, index) => (
-            <div key={index} className="glass-panel p-6 rounded-lg text-center">
-              <p className="text-4xl font-bold text-cyan-400">{stat.value}</p>
-              <p className="mt-2">{stat.label}</p>
+            <div key={index} className="glass-panel p-8 rounded-lg text-center hover:scale-105 transition">
+              <p className="text-5xl font-bold text-cyan-400">{stat.value}</p>
+              <p className="mt-3">{stat.label}</p>
             </div>
           ))}
         </div>
