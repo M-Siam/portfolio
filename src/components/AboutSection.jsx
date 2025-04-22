@@ -7,32 +7,28 @@ const AboutSection = () => {
   useEffect(() => {
     gsap.from(sectionRef.current.children, {
       opacity: 0,
-      y: 100,
-      stagger: 0.2,
-      duration: 1,
+      y: 120,
+      stagger: 0.3,
+      duration: 1.2,
       scrollTrigger: { trigger: sectionRef.current, start: 'top 80%' },
     });
   }, []);
 
   return (
-    <section id="about" className="min-h-screen bg-transparent text-white p-8">
-      <div ref={sectionRef} className="max-w-4xl mx-auto">
-        <h2 className="text-5xl font-bold text-cyan-400 text-center mb-12 glitch">Mission Core</h2>
-        <div className="glass-panel p-8 rounded-lg">
-          <img
-            src="/assets/images/avatar.jpg"
-            alt="Developer Avatar"
-            className="w-32 h-32 rounded-full mx-auto mb-6 hologram"
-          />
-          <p className="text-lg text-center">
-            I am a visionary developer, forging immersive digital experiences that transcend reality. My mission is to
-            redefine the boundaries of code, crafting interfaces that feel alive.
+    <section id="about" className="min-h-screen bg-transparent text-white p-10">
+      <div ref={sectionRef} className="max-w-5xl mx-auto">
+        <h2 className="text-6xl font-bold text-cyan-400 text-center mb-12 glitch">Core Directive</h2>
+        <div className="glass-panel p-10 rounded-lg">
+          <div className="w-40 h-40 bg-gradient-to-br from-cyan-400 to-purple-500 rounded-full mx-auto mb-8 hologram"></div>
+          <p className="text-xl text-center">
+            I am a digital architect, weaving code into immersive realities. My directive is to craft interfaces that pulse
+            with life, pushing the frontier of human-machine interaction.
           </p>
-          <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-6">
             {['React', 'Node.js', 'Three.js', 'Tailwind'].map((skill) => (
               <div
                 key={skill}
-                className="p-4 bg-cyan-400 text-black rounded-lg text-center hover:scale-110 transition glass-panel"
+                className="p-6 bg-cyan-400 text-black rounded-lg text-center hover:scale-110 transition glass-panel"
               >
                 {skill}
               </div>
