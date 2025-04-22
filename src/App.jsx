@@ -18,16 +18,16 @@ const App = () => {
     const hour = new Date().getHours();
     setTheme(hour >= 6 && hour < 18 ? 'pastel' : 'dark');
 
-    // Particle background
+    // Enhanced particle background
     particlesJS('particles-js', {
       particles: {
-        number: { value: 100, density: { enable: true, value_area: 800 } },
+        number: { value: 120, density: { enable: true, value_area: 800 } },
         color: { value: '#00ffff' },
         shape: { type: 'circle' },
-        opacity: { value: 0.3, random: true },
-        size: { value: 2, random: true },
-        move: { enable: true, speed: 1, direction: 'none', random: true },
-        line_linked: { enable: true, distance: 150, color: '#00ffff', opacity: 0.2, width: 1 },
+        opacity: { value: 0.4, random: true },
+        size: { value: 3, random: true },
+        move: { enable: true, speed: 2, direction: 'none', random: true },
+        line_linked: { enable: true, distance: 100, color: '#00ffff', opacity: 0.3, width: 1 },
       },
       interactivity: {
         events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' } },
@@ -40,19 +40,12 @@ const App = () => {
   }
 
   return (
-    <div className={`relative ${theme === 'dark' ? 'bg-gray-900' : 'bg-gray-200'}`}>
-      <video
-        autoPlay
-        loop
-        muted
-        className="fixed inset-0 object-cover opacity-20 z-0"
-        src="/assets/videos/bg-video.mp4"
-      ></video>
+    <div className={`relative ${theme === 'dark' ? 'bg-gradient-to-br from-gray-900 to-black' : 'bg-gradient-to-br from-gray-200 to-gray-400'}`}>
       <div id="particles-js" className="fixed inset-0 z-0"></div>
       <div className="relative z-10">
         <button
           onClick={() => setTheme(theme === 'dark' ? 'pastel' : 'dark')}
-          className="fixed top-4 right-4 px-4 py-2 bg-cyan-400 text-black rounded-full hover:bg-cyan-300 transition z-20"
+          className="fixed top-4 right-4 px-4 py-2 bg-cyan-400 text-black rounded-full hover:bg-cyan-300 transition z-20 glass-panel"
         >
           Toggle Theme
         </button>
